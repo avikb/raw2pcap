@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
 		// read ip header
 		struct ip ip;
 		in.read(reinterpret_cast<char*>(&ip), sizeof(struct ip));
+		if(!in) break;
 		uint16_t iplen = ntohs(ip.ip_len); // full ip packet length include ip header
 
 		// read rest of ip packet
